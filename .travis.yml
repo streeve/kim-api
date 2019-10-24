@@ -86,11 +86,11 @@ matrix:
           kim-api-collections-management list &&
           mkdir "${PWD}/WORKSPACE" &&
           ../scripts/run-cmds-from-install IN_WORKSPACE "${PWD}/WORKSPACE" "${PWD}/.."
-    - name: "linux fedora, Debug, Sanitize, Dockehub"
+    - name: "linux fedora, Debug, Sanitize, Dockerhub"
       if: branch != coverity_scan
       os: linux
       services: docker
-      env: DISTRO=fedora CMAKE_BUILD_TYPE=Debug SANITIZE=true COVERITY=false DOCKERHUB=true
+      env: DISTRO=fedora CMAKE_BUILD_TYPE=Debug SANITIZE=false COVERITY=false DOCKERHUB=true
       before_script:
         - mkdir ${HOME}/docker &&
           cp -v docker/Dockerfile.${DISTRO} ${HOME}/docker/Dockerfile &&
