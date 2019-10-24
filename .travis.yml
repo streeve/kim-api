@@ -46,7 +46,7 @@ matrix:
       if: branch != coverity_scan
       os: osx
       osx_image: xcode9.2
-      env: CMAKE_BUILD_TYPE=Debug SANITIZE=true COVERAGE=true COVERITY=false
+      env: CMAKE_BUILD_TYPE=Debug SANITIZE=true COVERAGE=true COVERITY=""
       before_script:
         - brew update &> /dev/null &&
           brew install gcc@6 ccache iwyu &&
@@ -90,7 +90,7 @@ matrix:
       if: branch != coverity_scan
       os: linux
       services: docker
-      env: DISTRO=fedora CMAKE_BUILD_TYPE=Debug SANITIZE=false COVERITY=false DOCKERHUB=true
+      env: DISTRO=fedora CMAKE_BUILD_TYPE=Debug SANITIZE="" COVERITY="" DOCKERHUB=true
       before_script:
         - mkdir ${HOME}/docker &&
           cp -v docker/Dockerfile.${DISTRO} ${HOME}/docker/Dockerfile &&
